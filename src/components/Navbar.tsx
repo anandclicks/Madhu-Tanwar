@@ -18,24 +18,21 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/60 bg-white/75 backdrop-blur-xl">
-      <div className="container-wide flex h-[4.5rem] items-center justify-between px-5 sm:px-8 lg:px-10">
+    <header className="sticky top-0 z-50 border-b border-border/80 bg-[#fafcfb]/90 backdrop-blur-lg">
+      <div className="container-wide flex h-[4.4rem] items-center justify-between px-5 sm:px-8 lg:px-10">
         <Logo />
 
-        <nav className="hidden items-center gap-1 xl:flex">
+        <nav className="hidden items-center gap-7 xl:flex">
           {links.map((link) => {
             const active = pathname === link.href;
-            const className = `rounded-full px-4 py-2 text-[15px] font-medium transition-all ${
-              active
-                ? "bg-brand-soft text-brand"
-                : "text-muted hover:bg-surface hover:text-foreground"
+            const className = `relative text-[0.92rem] font-medium transition ${
+              active ? "text-brand" : "text-muted hover:text-foreground"
             }`;
 
             if (!link.enabled) {
               return (
                 <span
                   key={link.href}
-                  // Keep route in code for later: link.href
                   role="link"
                   aria-disabled="true"
                   className={`${className} cursor-default`}
@@ -48,6 +45,9 @@ export function Navbar() {
             return (
               <Link key={link.href} href={link.href} className={className}>
                 {link.label}
+                {active && (
+                  <span className="absolute -bottom-1 left-0 h-0.5 w-full bg-brand" />
+                )}
               </Link>
             );
           })}
@@ -62,7 +62,7 @@ export function Navbar() {
         <button
           type="button"
           aria-label="Toggle menu"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-white text-foreground shadow-sm xl:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border bg-white text-foreground xl:hidden"
           onClick={() => setOpen((v) => !v)}
         >
           <svg
@@ -83,16 +83,15 @@ export function Navbar() {
 
       {open && (
         <div className="border-t border-border bg-white px-5 py-4 xl:hidden">
-          <nav className="flex flex-col gap-2">
+          <nav className="flex flex-col gap-1">
             {links.map((link) => {
               const className =
-                "rounded-xl px-3 py-2.5 text-[15px] font-medium text-foreground hover:bg-cream";
+                "rounded-md px-3 py-2.5 text-[15px] font-medium text-foreground hover:bg-cream";
 
               if (!link.enabled) {
                 return (
                   <span
                     key={link.href}
-                    // Keep route in code for later: link.href
                     role="link"
                     aria-disabled="true"
                     className={`${className} cursor-default`}
@@ -116,7 +115,7 @@ export function Navbar() {
             <Link
               href="/contact"
               onClick={() => setOpen(false)}
-              className="btn-primary mt-2 w-full"
+              className="btn-primary mt-3 w-full"
             >
               Book Appointment
             </Link>

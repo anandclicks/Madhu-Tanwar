@@ -31,38 +31,34 @@ const reasons = [
 
 export function WhyChooseUs() {
   return (
-    <section className="px-5 py-16 sm:px-8 lg:px-10 lg:py-24">
-      <div className="container-wide grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-        {/* Left — lifestyle reference images */}
-        <div className="relative mx-auto w-full max-w-lg lg:max-w-none">
-          <div className="grid gap-4 sm:grid-cols-2 sm:gap-5">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl sm:mt-10">
+    <section className="border-y border-border bg-cream px-5 py-16 sm:px-8 lg:px-10 lg:py-24">
+      <div className="container-wide grid items-start gap-12 lg:grid-cols-2 lg:gap-14">
+        <div className="relative mx-auto w-full max-w-lg lg:sticky lg:top-28 lg:max-w-none">
+          <div className="grid grid-rows-2 gap-4">
+            <div className="relative aspect-[16/10] overflow-hidden rounded-xl">
               <Image
                 src="/why-nutrition.png"
                 alt="Fresh nutrition and healthy meal preparation"
                 fill
                 className="object-cover"
-                sizes="(max-width: 1024px) 50vw, 25vw"
+                sizes="(max-width: 1024px) 90vw, 45vw"
               />
             </div>
-            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl">
+            <div className="relative aspect-[16/10] overflow-hidden rounded-xl">
               <Image
                 src="/why-dermatology.png"
                 alt="Advanced dermatology and skin care treatment"
                 fill
                 className="object-cover"
-                sizes="(max-width: 1024px) 50vw, 25vw"
+                sizes="(max-width: 1024px) 90vw, 45vw"
               />
             </div>
           </div>
         </div>
 
-        {/* Right — content */}
         <div>
-          <span className="inline-flex items-center rounded-full border border-emerald-200 bg-white px-4 py-1.5 text-sm font-medium text-brand shadow-sm">
-            Our Promise
-          </span>
-          <h2 className="font-display mt-5 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+          <p className="section-label">Our Promise</p>
+          <h2 className="font-display mt-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             Why Choose Us?
           </h2>
           <p className="mt-5 text-base leading-relaxed text-muted sm:text-[1.05rem]">
@@ -76,31 +72,24 @@ export function WhyChooseUs() {
             your best — inside and out.
           </p>
 
-          <ul className="mt-8 space-y-4">
-            {reasons.map((reason) => (
-              <li key={reason.title} className="flex gap-3">
-                <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand text-white">
-                  <svg
-                    viewBox="0 0 16 16"
-                    className="h-3 w-3"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                  >
-                    <path d="M3.5 8.5l3 3 6-6" />
-                  </svg>
+          <div className="mt-8 space-y-4">
+            {reasons.map((reason, index) => (
+              <div
+                key={reason.title}
+                className="grid grid-cols-[auto_1fr] gap-4 border-b border-border pb-4 last:border-b-0"
+              >
+                <span className="font-display text-lg font-bold text-brand">
+                  {String(index + 1).padStart(2, "0")}
                 </span>
                 <div>
-                  <p className="text-[15px] font-semibold text-foreground">
-                    {reason.title}
-                  </p>
-                  <p className="mt-0.5 text-sm leading-relaxed text-muted">
+                  <p className="font-semibold text-foreground">{reason.title}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-muted">
                     {reason.description}
                   </p>
                 </div>
-              </li>
+              </div>
             ))}
-          </ul>
+          </div>
 
           <Link href="/about" className="btn-primary mt-9">
             Know more about me

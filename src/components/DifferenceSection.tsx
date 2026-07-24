@@ -1,5 +1,3 @@
-import { SectionIntro } from "./SectionIntro";
-
 const differences = [
   {
     title: "Two specialties. One plan.",
@@ -20,36 +18,38 @@ const differences = [
 
 export function DifferenceSection() {
   return (
-    <section className="px-5 py-16 sm:px-8 lg:px-10 lg:py-24">
-      <SectionIntro
-        badge="Why Dr. Madhu Tanwar"
-        title="Care that connects skin and nutrition."
-        description="A modern clinic experience designed for lasting health — inside and out."
-      />
+    <section className="bg-white px-5 py-16 sm:px-8 lg:px-10 lg:py-24">
+      <div className="container-wide">
+        <div className="max-w-2xl">
+          <p className="section-label">Why Dr. Madhu Tanwar</p>
+          <h2 className="font-display mt-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-[2.7rem]">
+            Care that connects skin and nutrition.
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
+            A modern clinic experience designed for lasting health — inside and
+            out.
+          </p>
+        </div>
 
-      <div className="container-wide mt-14 grid gap-6 md:grid-cols-3">
-        {differences.map((item, index) => (
-          <div
-            key={item.title}
-            className={`glass-card animate-fade-up rounded-[1.75rem] p-8 ${
-              index === 0
-                ? "delay-100"
-                : index === 1
-                  ? "delay-200"
-                  : "delay-300"
-            }`}
-          >
-            <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-400 to-brand text-lg font-bold text-white shadow-[0_10px_22px_rgba(0,133,102,0.3)]">
-              {index + 1}
+        <div className="mt-12 divide-y divide-border border-y border-border">
+          {differences.map((item, index) => (
+            <div
+              key={item.title}
+              className="animate-fade-up grid gap-4 py-8 md:grid-cols-[7rem_1fr_1.4fr] md:items-start md:gap-10"
+              style={{ animationDelay: `${(index + 1) * 0.1}s` }}
+            >
+              <span className="font-display text-4xl font-bold text-brand/25">
+                0{index + 1}
+              </span>
+              <h3 className="font-display text-xl font-bold tracking-tight text-foreground md:pt-2">
+                {item.title}
+              </h3>
+              <p className="text-[15px] leading-relaxed text-muted md:pt-2">
+                {item.description}
+              </p>
             </div>
-            <h3 className="font-display text-xl font-bold tracking-tight text-foreground">
-              {item.title}
-            </h3>
-            <p className="mt-3 text-[15px] leading-relaxed text-muted">
-              {item.description}
-            </p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
