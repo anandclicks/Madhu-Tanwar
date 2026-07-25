@@ -1,15 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fafcfb;
-  --foreground: #10231c;
+  --background: #f5f8f6;
+  --foreground: #0b1a14;
   --brand: #008566;
-  --brand-dark: #00664e;
-  --brand-soft: #e4f5ef;
-  --cream: #f3faf7;
-  --muted: #5b6b64;
-  --border: #d7e5df;
+  --brand-dark: #005c48;
+  --brand-soft: #ddf3eb;
+  --cream: #eef6f2;
+  --muted: #5a6b63;
+  --border: #cfdeda;
   --surface: #ffffff;
+  --ink: #06110d;
 }
 
 @theme inline {
@@ -22,6 +23,7 @@
   --color-muted: var(--muted);
   --color-border: var(--border);
   --color-surface: var(--surface);
+  --color-ink: var(--ink);
   --font-sans: var(--font-outfit), system-ui, sans-serif;
   --font-display: var(--font-syne), system-ui, sans-serif;
 }
@@ -44,21 +46,23 @@ html.lenis body {
 }
 
 body {
-  background: var(--background);
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0, 133, 102, 0.06), transparent 55%),
+    var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
 }
 
 .container-wide {
   width: 100%;
-  max-width: 1280px;
+  max-width: 1200px;
   margin-inline: auto;
 }
 
 @keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(22px);
   }
   to {
     opacity: 1;
@@ -85,7 +89,7 @@ body {
 }
 
 .animate-fade-up {
-  animation: fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: fade-up 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .animate-fade-in {
@@ -109,20 +113,22 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 3.1rem;
-  padding-inline: 1.6rem;
-  border-radius: 0.55rem;
-  background: var(--brand);
+  height: 3.15rem;
+  padding-inline: 1.75rem;
+  border-radius: 9999px;
+  background: linear-gradient(180deg, #00a078 0%, #008566 100%);
   color: #fff;
   font-size: 0.9rem;
   font-weight: 600;
-  letter-spacing: 0.01em;
-  box-shadow: 0 10px 24px rgba(0, 133, 102, 0.22);
+  letter-spacing: 0.02em;
+  box-shadow:
+    0 12px 28px rgba(0, 133, 102, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
   overflow: hidden;
   transition:
-    background 0.2s ease,
     transform 0.2s ease,
-    box-shadow 0.2s ease;
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
 }
 
 .btn-primary::before {
@@ -131,18 +137,20 @@ body {
   inset: 0;
   background: linear-gradient(
     105deg,
-    transparent 40%,
-    rgba(255, 255, 255, 0.35) 50%,
-    transparent 60%
+    transparent 38%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 62%
   );
   transform: translateX(-130%) skewX(-16deg);
   pointer-events: none;
 }
 
 .btn-primary:hover {
-  background: var(--brand-dark);
-  transform: translateY(-1px);
-  box-shadow: 0 14px 28px rgba(0, 133, 102, 0.28);
+  transform: translateY(-2px);
+  filter: brightness(1.04);
+  box-shadow:
+    0 16px 34px rgba(0, 133, 102, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28);
 }
 
 .btn-primary:hover::before {
@@ -153,28 +161,32 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 3.1rem;
-  padding-inline: 1.6rem;
-  border-radius: 0.55rem;
-  border: 1.5px solid var(--foreground);
-  background: transparent;
+  height: 3.15rem;
+  padding-inline: 1.75rem;
+  border-radius: 9999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.9);
   color: var(--foreground);
   font-size: 0.9rem;
   font-weight: 600;
+  box-shadow: 0 6px 18px rgba(11, 26, 20, 0.04);
   transition:
-    background 0.2s ease,
-    color 0.2s ease,
-    border-color 0.2s ease;
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
 }
 
 .btn-secondary:hover {
-  background: var(--foreground);
-  color: #fff;
+  transform: translateY(-2px);
+  border-color: var(--brand);
+  background: #fff;
+  box-shadow: 0 10px 24px rgba(11, 26, 20, 0.07);
 }
 
 .btn-sm {
   height: 2.7rem;
-  padding-inline: 1.25rem;
+  padding-inline: 1.35rem;
   font-size: 0.85rem;
 }
 
@@ -182,16 +194,26 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--brand);
 }
 
 .section-label::before {
   content: "";
-  width: 1.4rem;
+  width: 1.5rem;
   height: 2px;
+  border-radius: 9999px;
   background: var(--brand);
+}
+
+.premium-card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(207, 222, 218, 0.8);
+  box-shadow:
+    0 14px 40px rgba(11, 26, 20, 0.05),
+    0 2px 8px rgba(11, 26, 20, 0.03);
+  backdrop-filter: blur(8px);
 }

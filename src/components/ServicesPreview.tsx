@@ -33,16 +33,14 @@ const services = [
 
 export function ServicesPreview() {
   return (
-    <section className="border-y border-border bg-cream px-5 py-16 sm:px-8 lg:px-10 lg:py-24">
+    <section className="bg-white px-5 py-16 sm:px-8 lg:py-24">
       <div className="container-wide">
-        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <div className="max-w-xl">
-            <p className="section-label">Services</p>
-            <h2 className="font-display mt-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              Nutrition and skin care, beautifully aligned.
-            </h2>
-          </div>
-          <p className="max-w-sm text-[15px] leading-relaxed text-muted">
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="section-label mx-auto w-fit">Services</p>
+          <h2 className="font-display mt-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            Nutrition and skin care, beautifully aligned.
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
             Choose focused support or combine specialties for complete
             transformation.
           </p>
@@ -53,7 +51,7 @@ export function ServicesPreview() {
             <Link
               key={service.title}
               href={service.href}
-              className="group block bg-white transition hover:-translate-y-1"
+              className="premium-card group block overflow-hidden rounded-[1.75rem] transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_22px_50px_rgba(0,133,102,0.12)]"
             >
               <div className="relative aspect-[16/11] overflow-hidden">
                 <Image
@@ -63,16 +61,16 @@ export function ServicesPreview() {
                   className="object-cover transition duration-500 group-hover:scale-105"
                   sizes="(max-width: 1024px) 100vw, 33vw"
                 />
-                <span className="absolute left-4 top-4 rounded-md bg-brand px-2.5 py-1 text-[0.65rem] font-bold uppercase tracking-wider text-white">
+                <span className="absolute left-4 top-4 rounded-full bg-brand px-3 py-1 text-[0.65rem] font-bold uppercase tracking-wider text-white shadow-sm">
                   {service.tag}
                 </span>
               </div>
-              <div className="border border-t-0 border-border p-6">
+              <div className="p-7">
                 <div className="flex items-start justify-between gap-3">
                   <h3 className="font-display text-xl font-bold tracking-tight text-foreground">
                     {service.title}
                   </h3>
-                  <span className="font-display text-sm font-bold text-brand/40">
+                  <span className="font-display text-sm font-bold text-brand/35">
                     0{index + 1}
                   </span>
                 </div>

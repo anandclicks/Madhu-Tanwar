@@ -11,7 +11,7 @@ export function ContactForm() {
   }
 
   return (
-    <div className="rounded-[2rem] border border-border bg-white p-7 shadow-[0_20px_50px_rgba(0,133,102,0.08)] sm:p-9">
+    <div className="premium-card rounded-[2rem] p-7 sm:p-9">
       {submitted ? (
         <div className="flex min-h-[360px] flex-col items-center justify-center text-center">
           <span className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-emerald-400 to-brand text-white shadow-[0_12px_24px_rgba(0,133,102,0.35)]">
