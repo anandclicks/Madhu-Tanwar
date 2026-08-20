@@ -7,10 +7,8 @@ import { Logo } from "./Logo";
 
 const links = [
   { href: "/", label: "Home", enabled: true },
-  { href: "/nutrition", label: "Nutrition", enabled: false },
-  { href: "/dermatology", label: "Skin Care", enabled: false },
-  { href: "/consultations", label: "Consultations", enabled: false },
-  { href: "/about", label: "About", enabled: false },
+  { href: "/services", label: "Services", enabled: true },
+  { href: "/locations", label: "Locations", enabled: true },
 ];
 
 export function Navbar() {
@@ -24,7 +22,9 @@ export function Navbar() {
 
         <nav className="hidden items-center gap-7 xl:flex">
           {links.map((link) => {
-            const active = pathname === link.href;
+            const active =
+              pathname === link.href ||
+              (link.href !== "/" && pathname.startsWith(link.href));
             const className = `relative text-[0.92rem] font-medium transition ${
               active ? "text-brand" : "text-muted hover:text-foreground"
             }`;

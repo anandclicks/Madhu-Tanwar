@@ -1,9 +1,8 @@
 import Image from "next/image";
-import Link from "next/link";
 
 export function AboutPreview() {
   return (
-    <section className="bg-white px-5 py-16 sm:px-8 lg:px-10 lg:py-24">
+    <section className="bg-cream px-5 py-16 sm:px-8 lg:px-10 lg:py-24">
       <div className="container-wide grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
         <div className="relative mx-auto w-full max-w-md lg:max-w-none">
           <div className="absolute -left-3 top-6 hidden h-[70%] w-3 bg-brand sm:block" />
@@ -19,34 +18,25 @@ export function AboutPreview() {
         </div>
 
         <div className="lg:pl-4">
-          <p className="section-label">Meet Dr. Madhu Tanwar</p>
+          <p className="section-label">Personalized Care</p>
           <h2 className="font-display mt-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Dual expertise. Personal attention.
+            Personalized Care Makes the Difference
           </h2>
           <p className="mt-5 text-base leading-relaxed text-muted sm:text-lg">
-            Dr. Madhu Tanwar is a dietitian and dermatologist helping patients
-            improve health from the inside out — pairing clinical nutrition with
-            modern skin care for results that last.
+            No two patients have identical skin. Factors such as age, genetics,
+            hormones, climate, occupation, stress, and lifestyle all influence
+            skin health.
           </p>
-
-          <ul className="mt-8 space-y-0 border-l-2 border-brand/30 pl-5">
-            {[
-              "Dietitian & dermatologist",
-              "Specialties in acne, gut-skin health & metabolic wellness",
-              "Virtual and in-clinic consultations available",
-            ].map((item) => (
-              <li
-                key={item}
-                className="border-b border-border py-3.5 text-[15px] font-medium text-foreground last:border-b-0"
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
-
-          <Link href="/about" className="btn-primary mt-9">
-            About Dr. Madhu Tanwar
-          </Link>
+          <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
+            At Dr. Madhu Tanwar&apos;s Clinic, treatment plans are personalized
+            after a thorough skin assessment. This patient-first approach helps
+            ensure treatments are appropriate, effective, and aligned with
+            individual goals.
+          </p>
+          <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
+            Rather than offering quick fixes, the focus remains on achieving
+            long-term skin health through medical expertise and consistent care.
+          </p>
         </div>
       </div>
     </section>

@@ -2,12 +2,25 @@ import Link from "next/link";
 
 const columns = [
   {
-    title: "Care",
+    title: "Services",
     links: [
-      { href: "/nutrition", label: "Nutrition" },
-      { href: "/dermatology", label: "Skin Care" },
-      { href: "/consultations", label: "Consultations" },
-      { href: "/about", label: "About" },
+      { href: "/services/hydrafacial-gurgaon", label: "Hydrafacial" },
+      { href: "/services/acne-treatment-gurgaon", label: "Acne Treatment" },
+      { href: "/services/hair-fall-treatment-gurgaon", label: "Hair Fall Treatment" },
+      { href: "/services/dietician-gurgaon", label: "Dietician" },
+      { href: "/services", label: "All Services" },
+    ],
+  },
+  {
+    title: "Locations",
+    links: [
+      { href: "/locations/dietician-dlf-phase-2", label: "Dietician DLF Phase 2" },
+      { href: "/locations/skin-clinic-sushant-lok", label: "Skin Clinic Sushant Lok" },
+      {
+        href: "/locations/hydrafacial-sector-25-gurugram",
+        label: "Hydrafacial Sector 25",
+      },
+      { href: "/locations", label: "All Locations" },
     ],
   },
   {
@@ -23,7 +36,7 @@ const columns = [
 export function Footer() {
   return (
     <footer className="border-t border-border bg-foreground text-white">
-      <div className="container-wide grid gap-10 px-5 py-14 sm:px-8 lg:grid-cols-[1.6fr_1fr_1fr] lg:px-10">
+      <div className="container-wide grid gap-10 px-5 py-14 sm:px-8 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1.2fr_1fr] lg:px-10">
         <div>
           <div className="flex items-center gap-3">
             <span className="flex h-10 w-10 items-center justify-center rounded-md bg-white text-sm font-bold text-brand">
